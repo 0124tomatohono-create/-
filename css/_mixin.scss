@@ -1,0 +1,27 @@
+$main-color: #F8EDD3;
+$sub-color: #FFCEC5;
+$font-color: #000000;
+
+
+@mixin section-title {
+    text-align: center;
+    text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+    font-size: 4rem;
+    margin-bottom: 3%;
+}
+
+@mixin concept-img {
+    border-radius: 20px;
+    width: 75rem;
+    height: 40rem;
+    object-fit: cover;
+}
+
+@mixin cta {
+    background-color: $sub-color;
+    display: inline-block;
+    padding: 1% 4%;
+    font-size: 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+}
