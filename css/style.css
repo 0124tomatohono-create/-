@@ -1,8 +1,161 @@
 @charset "UTF-8";
+.menu-sheet {
+  padding: 0;
+}
+.menu-sheet .menu-main-visual {
+  background: url(../img/メニューTOP.jpeg) no-repeat center/cover;
+  height: 100vh;
+  position: relative;
+}
+.menu-sheet .menu-main-visual .menu-title {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  font-size: 6rem;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+}
+.menu-sheet .menu-main-visual .menu-badge {
+  position: absolute;
+  top: 60%;
+  left: 13%;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 2.4rem;
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+}
+.menu-sheet .menu-tart {
+  position: relative;
+}
+.menu-sheet .menu-tart .section-title {
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+.menu-sheet .menu-tart .tart-img-illust {
+  position: absolute;
+  width: 20%;
+  top: 0;
+  right: -15rem;
+  animation: fuwafuwa 3s ease-in-out infinite alternate;
+  transition: 1.5s ease-in-out;
+}
+.menu-sheet .menu-drink {
+  position: relative;
+}
+.menu-sheet .menu-drink .section-title {
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+.menu-sheet .menu-drink .drink-img-illust {
+  position: absolute;
+  width: 20%;
+  top: 0;
+  left: -15rem;
+  animation: fuwafuwa 3s ease-in-out infinite alternate;
+  transition: 1.5s ease-in-out;
+}
+.menu-sheet .menu-tart,
+.menu-sheet .menu-drink {
+  max-width: 1120px;
+  margin: 0 auto;
+  margin-bottom: 10rem;
+}
+.menu-sheet .menu-tart .menu-list,
+.menu-sheet .menu-drink .menu-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+.menu-sheet .menu-tart .menu-list .menu-list-item,
+.menu-sheet .menu-drink .menu-list .menu-list-item {
+  width: 27rem;
+  height: 30rem;
+}
+.menu-sheet .menu-tart .menu-list .menu-list-item .list-img,
+.menu-sheet .menu-drink .menu-list .menu-list-item .list-img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-block: 5%;
+}
+.menu-sheet .menu-tart .menu-list .menu-list-item .list-title,
+.menu-sheet .menu-drink .menu-list .menu-list-item .list-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.menu-sheet .menu-tart .pink,
+.menu-sheet .menu-drink .pink {
+  background-color: #FFCEC5;
+}
+.menu-sheet .menu-tart .cream,
+.menu-sheet .menu-drink .cream {
+  background-color: #F8EDD3;
+}
+.menu-sheet .menu-tart .pink,
+.menu-sheet .menu-tart .cream,
+.menu-sheet .menu-drink .pink,
+.menu-sheet .menu-drink .cream {
+  border-radius: 10px;
+}
+@keyframes fuwafuwa {
+  0% {
+    transform: translate(0, 0) rotate(-7deg);
+  }
+  50% {
+    transform: translate(0, -7px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(7deg);
+  }
+}
+
+.news-page {
+  overflow: hidden;
+}
+
+.news-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  height: 55vh;
+}
+.news-container .news-img {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news-container .news-content {
+  padding-left: 10%;
+}
+.news-container .news-content .date {
+  margin-bottom: 2%;
+}
+.news-container .news-content .news-title {
+  margin-bottom: 1%;
+  font-size: 3.6rem;
+}
+.news-container .news-content .news-text {
+  font-size: 1.2rem;
+}
+
 html {
   width: 100%;
   box-sizing: border-box;
-  font-size: clamp(10px, 0.695vw, 16px);
+  font-size: 0.695vw;
   font-family: "M PLUS 1p", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -46,13 +199,13 @@ section {
 .loading {
   position: fixed;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   z-index: 999999;
   background-color: white;
   animation: fadeOut 0.5s ease 2.5s forwards;
@@ -77,7 +230,7 @@ section {
   left: 50%;
 }
 .loading .loading-img {
-  max-width: 360px;
+  width: 20vw;
   margin-top: 10rem;
 }
 
@@ -92,33 +245,38 @@ section {
   }
 }
 header {
-  position: relative;
   position: fixed;
   top: 0;
   z-index: 20;
-  width: 100%;
-  height: 10rem;
+  width: 100vw;
+  height: 15vh;
 }
 header .header-img {
   width: 100%;
   height: 100%;
 }
+@media (max-width: 768px) {
+  header .header-img {
+    display: none;
+  }
+}
 header .content {
   position: absolute;
-  width: 100%;
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  padding: 0.5rem 2rem;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 header .content .store-name {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 header .content nav {
   display: flex;
   align-items: center;
-  gap: 65rem;
 }
 header .content nav .service-badge {
   display: flex;
@@ -127,12 +285,12 @@ header .content nav .service-badge {
   align-items: center;
   background-color: white;
   border-radius: 50px;
-  width: 8rem;
-  height: 8rem;
+  width: 5vw;
+  height: 10vh;
 }
 header .content nav .service-badge .badge-text {
   font-weight: bold;
-  font-size: 0.9em;
+  font-size: 0.8rem;
 }
 header .content nav .nav-menu {
   display: flex;
@@ -159,14 +317,12 @@ main .main-visual {
   height: calc(100vh - 15rem);
   display: flex;
   justify-content: space-between;
-}
-main .main-visual .mein-visual-img {
   position: relative;
 }
 main .main-visual .mein-visual-img li {
   position: absolute;
-  width: 100rem;
-  height: 50rem;
+  width: 60vw;
+  height: 60vh;
   top: 0;
   left: 0;
   opacity: 0;
@@ -205,7 +361,11 @@ main .main-visual .mein-visual-img li:nth-child(3) {
   }
 }
 main .main-visual .info-banner {
-  padding-right: 2rem;
+  padding-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 main .main-visual .info-banner .info-banner-text {
   position: relative;
@@ -214,7 +374,7 @@ main .main-visual .info-banner .info-banner-text {
   font-weight: bold;
   background-color: #FFCEC5;
   filter: drop-shadow(0 0.4rem 0.7rem rgba(0, 0, 0, 0.25));
-  width: 30rem;
+  width: 25vw;
   padding: 2rem;
   border-radius: 30px;
   margin-bottom: 3rem;
@@ -239,16 +399,21 @@ main .main-visual .info-banner .info-banner-text .banner-text:nth-child(2) {
   margin-top: 0;
 }
 main .main-visual .info-banner .info-banner-img {
-  width: 30rem;
+  width: 15vw;
+}
+@media (max-width: 768px) {
+  main .main-visual {
+    flex-direction: column;
+  }
 }
 main #menu .section-title {
   text-align: center;
   text-shadow: 0 4px rgba(0, 0, 0, 0.25);
   font-size: 4rem;
-  margin-bottom: 3%;
+  margin-bottom: 5rem;
 }
 main #menu .swiper {
-  width: 90%;
+  width: 90vw;
   height: 50vh;
   padding-bottom: 1%;
 }
@@ -277,7 +442,7 @@ main #menu .cta-menu-list .cta-menu,
 main #menu .cta-menu-list .cta-instagram {
   background-color: #FFCEC5;
   display: inline-block;
-  padding: 1% 4%;
+  padding: 1.5rem 7rem;
   font-size: 2rem;
   border-radius: 50px;
   box-shadow: 0 4px rgba(0, 0, 0, 0.25);
@@ -289,7 +454,7 @@ main #concept .wrapper .section-title {
   text-align: center;
   text-shadow: 0 4px rgba(0, 0, 0, 0.25);
   font-size: 4rem;
-  margin-bottom: 3%;
+  margin-bottom: 5rem;
   padding-top: 1%;
 }
 main #concept .wrapper .concept-top,
@@ -313,8 +478,8 @@ main #concept .wrapper .concept-top {
 }
 main #concept .wrapper .concept-top .concept-img1 {
   border-radius: 20px;
-  width: 75rem;
-  height: 40rem;
+  width: 52vw;
+  height: 50vh;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0 20px 20px 0;
@@ -322,13 +487,13 @@ main #concept .wrapper .concept-top .concept-img1 {
 }
 main #concept .wrapper .concept-top .line1 {
   position: absolute;
-  width: 50rem;
+  width: 40vw;
   top: 0;
   right: 0;
 }
 main #concept .wrapper .concept-top .line2 {
   position: absolute;
-  width: 35rem;
+  width: 30vw;
   top: 3rem;
   right: 0;
 }
@@ -352,8 +517,8 @@ main #concept .wrapper .concept-middle {
 }
 main #concept .wrapper .concept-middle .concept-img2 {
   border-radius: 20px;
-  width: 75rem;
-  height: 40rem;
+  width: 52vw;
+  height: 50vh;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 20px 0 0 20px;
@@ -363,8 +528,8 @@ main #concept .wrapper .concept-middle .concept-img2 {
   left: 68rem;
 }
 main #concept .wrapper .concept-middle .line3 {
-  width: 65rem;
-  height: 32rem;
+  width: 50vw;
+  height: 30vh;
   position: absolute;
   top: -5rem;
   left: -5rem;
@@ -389,8 +554,8 @@ main #concept .wrapper .concept-bottom {
 }
 main #concept .wrapper .concept-bottom .concept-img3 {
   border-radius: 20px;
-  width: 75rem;
-  height: 40rem;
+  width: 52vw;
+  height: 50vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -409,12 +574,12 @@ main #availability .section-title {
   text-align: center;
   text-shadow: 0 4px rgba(0, 0, 0, 0.25);
   font-size: 4rem;
-  margin-bottom: 3%;
+  margin-bottom: 5rem;
 }
 main #availability .availability-container {
   display: flex;
   justify-content: space-between;
-  padding-inline: 3%;
+  padding-inline: 3rem;
 }
 main #availability .availability-container .booking-calendar {
   width: 50%;
@@ -456,11 +621,10 @@ main #availability .availability-container .busy-list dl dd {
 main #availability .availability-container .busy-list .cta-instagram {
   background-color: #FFCEC5;
   display: inline-block;
-  padding: 1% 4%;
+  padding: 1.5rem 7rem;
   font-size: 2rem;
   border-radius: 50px;
   box-shadow: 0 4px rgba(0, 0, 0, 0.25);
-  width: 50%;
 }
 main #news {
   background: url(../img/背景画像2.png) repeat-x center/contain;
@@ -470,7 +634,7 @@ main #news .section-title {
   text-align: center;
   text-shadow: 0 4px rgba(0, 0, 0, 0.25);
   font-size: 4rem;
-  margin-bottom: 3%;
+  margin-bottom: 5rem;
   padding-top: 1%;
 }
 main #news .news-list {
@@ -534,14 +698,26 @@ main #access .section-title {
   text-align: center;
   text-shadow: 0 4px rgba(0, 0, 0, 0.25);
   font-size: 4rem;
-  margin-bottom: 3%;
+  margin-bottom: 5rem;
 }
 main #access .img-illustration {
   position: absolute;
   width: 20%;
-  transform: rotate(40deg);
   top: 0;
-  left: -30rem;
+  left: -25rem;
+  animation: fuwafuwa 3s ease-in-out infinite alternate;
+  transition: 1.5s ease-in-out;
+}
+@keyframes fuwafuwa {
+  0% {
+    transform: translate(0, 0) rotate(-7deg);
+  }
+  50% {
+    transform: translate(0, -7px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(7deg);
+  }
 }
 main #access .access-container {
   display: flex;
@@ -572,7 +748,7 @@ main #access .access-container .information .access-detail dd {
 main #access .access-container .information .cta-map {
   background-color: #FFCEC5;
   display: inline-block;
-  padding: 1% 4%;
+  padding: 1.5rem 7rem;
   font-size: 2rem;
   border-radius: 50px;
   box-shadow: 0 4px rgba(0, 0, 0, 0.25);
@@ -634,6 +810,7 @@ footer .footer-container .menu-list {
   font-size: 1.5rem;
   width: 30%;
   display: flex;
+  justify-content: space-around;
 }
 footer .to-top {
   position: fixed;

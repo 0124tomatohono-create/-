@@ -7,21 +7,27 @@ $font-color: #000000;
     text-align: center;
     text-shadow: 0 4px rgba(0, 0, 0, 0.25);
     font-size: 4rem;
-    margin-bottom: 3%;
+    margin-bottom: 5rem;
 }
 
 @mixin concept-img {
     border-radius: 20px;
-    width: 75rem;
-    height: 40rem;
+    width: 52vw;
+    height: 50vh;
     object-fit: cover;
 }
 
 @mixin cta {
     background-color: $sub-color;
     display: inline-block;
-    padding: 1% 4%;
+    padding: 1.5rem 7rem;
     font-size: 2rem;
     border-radius: 50px;
     box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+}
+
+@mixin responsive {
+    @media (max-width: 768px) {
+        @content;
+    }
 }
