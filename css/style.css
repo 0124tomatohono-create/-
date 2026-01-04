@@ -1,0 +1,645 @@
+@charset "UTF-8";
+html {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: clamp(10px, 0.695vw, 16px);
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+  word-break: normal;
+}
+
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  margin-bottom: 10rem;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.loading {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 999999;
+  background-color: white;
+  animation: fadeOut 0.5s ease 2.5s forwards;
+}
+.loading .loading-title {
+  position: relative;
+  font-size: 4rem;
+  width: 100%;
+  font-family: "Zen Maru Gothic", sans-serif;
+}
+.loading .loading-title .loading-title-top {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 35%;
+}
+.loading .loading-title .loading-title-bottom {
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+}
+.loading .loading-img {
+  max-width: 360px;
+  margin-top: 10rem;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+header {
+  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: 10rem;
+}
+header .header-img {
+  width: 100%;
+  height: 100%;
+}
+header .content {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  top: 0;
+}
+header .content .store-name {
+  font-size: 1.5em;
+}
+header .content nav {
+  display: flex;
+  align-items: center;
+  gap: 65rem;
+}
+header .content nav .service-badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  width: 8rem;
+  height: 8rem;
+}
+header .content nav .service-badge .badge-text {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+header .content nav .nav-menu {
+  display: flex;
+  font-size: 1.5em;
+}
+header .content nav .nav-menu li {
+  padding-right: 1.5rem;
+}
+header .content nav .nav-menu li .instagram-icon {
+  display: inline-block;
+  max-width: 25px;
+}
+header .content .hamburger {
+  display: none;
+}
+header .content .mask {
+  display: none;
+}
+
+main {
+  padding-top: 15rem;
+}
+main .main-visual {
+  height: calc(100vh - 15rem);
+  display: flex;
+  justify-content: space-between;
+}
+main .main-visual .mein-visual-img {
+  position: relative;
+}
+main .main-visual .mein-visual-img li {
+  position: absolute;
+  width: 100rem;
+  height: 50rem;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: fade 12s infinite;
+}
+main .main-visual .mein-visual-img li img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0 50px 50px 0;
+  height: 100%;
+}
+main .main-visual .mein-visual-img li:nth-child(1) {
+  animation-delay: 0s;
+}
+main .main-visual .mein-visual-img li:nth-child(2) {
+  animation-delay: 4s;
+}
+main .main-visual .mein-visual-img li:nth-child(3) {
+  animation-delay: 8s;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+main .main-visual .info-banner {
+  padding-right: 2rem;
+}
+main .main-visual .info-banner .info-banner-text {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  background-color: #FFCEC5;
+  filter: drop-shadow(0 0.4rem 0.7rem rgba(0, 0, 0, 0.25));
+  width: 30rem;
+  padding: 2rem;
+  border-radius: 30px;
+  margin-bottom: 3rem;
+}
+main .main-visual .info-banner .info-banner-text::before {
+  position: absolute;
+  content: "";
+  border: 2rem solid transparent;
+  border-top: 2rem solid #FFCEC5;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main .main-visual .info-banner .info-banner-text .banner-text:nth-child(1) {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+main .main-visual .info-banner .info-banner-text .banner-text:nth-child(2) {
+  display: inline-block;
+  border-bottom: 1px solid black;
+  font-size: 2rem;
+  margin-top: 0;
+}
+main .main-visual .info-banner .info-banner-img {
+  width: 30rem;
+}
+main #menu .section-title {
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 3%;
+}
+main #menu .swiper {
+  width: 90%;
+  height: 50vh;
+  padding-bottom: 1%;
+}
+main #menu .swiper .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #menu .swiper .swiper-slide img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50px;
+}
+main #menu .swiper .swiper-pagination {
+  bottom: 0;
+}
+main #menu .cta-menu-list {
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+  margin-top: 3rem;
+}
+main #menu .cta-menu-list .cta-menu,
+main #menu .cta-menu-list .cta-instagram {
+  background-color: #FFCEC5;
+  display: inline-block;
+  padding: 1% 4%;
+  font-size: 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+}
+main #concept {
+  background: url(../img/背景画像.png) repeat-x center/contain;
+}
+main #concept .wrapper .section-title {
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 3%;
+  padding-top: 1%;
+}
+main #concept .wrapper .concept-top,
+main #concept .wrapper .concept-middle,
+main #concept .wrapper .concept-bottom {
+  display: flex;
+}
+main #concept .wrapper .concept-top .title,
+main #concept .wrapper .concept-middle .title,
+main #concept .wrapper .concept-bottom .title {
+  font-weight: bold;
+  font-size: 2rem;
+}
+main #concept .wrapper .concept-top .lead,
+main #concept .wrapper .concept-middle .lead,
+main #concept .wrapper .concept-bottom .lead {
+  font-size: 1.5rem;
+}
+main #concept .wrapper .concept-top {
+  position: relative;
+}
+main #concept .wrapper .concept-top .concept-img1 {
+  border-radius: 20px;
+  width: 75rem;
+  height: 40rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0 20px 20px 0;
+  z-index: 5;
+}
+main #concept .wrapper .concept-top .line1 {
+  position: absolute;
+  width: 50rem;
+  top: 0;
+  right: 0;
+}
+main #concept .wrapper .concept-top .line2 {
+  position: absolute;
+  width: 35rem;
+  top: 3rem;
+  right: 0;
+}
+main #concept .wrapper .concept-top .line1,
+main #concept .wrapper .concept-top .line2 {
+  height: 1rem;
+}
+main #concept .wrapper .concept-top .title {
+  position: absolute;
+  top: 13rem;
+  left: 78rem;
+}
+main #concept .wrapper .concept-top .lead {
+  position: absolute;
+  top: 16rem;
+  left: 78rem;
+}
+main #concept .wrapper .concept-middle {
+  flex-direction: row-reverse;
+  position: relative;
+}
+main #concept .wrapper .concept-middle .concept-img2 {
+  border-radius: 20px;
+  width: 75rem;
+  height: 40rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px 0 0 20px;
+  position: absolute;
+  z-index: 10;
+  top: -6rem;
+  left: 68rem;
+}
+main #concept .wrapper .concept-middle .line3 {
+  width: 65rem;
+  height: 32rem;
+  position: absolute;
+  top: -5rem;
+  left: -5rem;
+  z-index: 3;
+}
+main #concept .wrapper .concept-middle .title {
+  position: absolute;
+  top: 30rem;
+  left: 20rem;
+}
+main #concept .wrapper .concept-middle .lead {
+  position: absolute;
+  top: 35rem;
+  left: 20rem;
+  width: 77rem;
+}
+main #concept .wrapper .concept-bottom {
+  margin-top: 50rem;
+  padding-bottom: 10rem;
+  justify-content: center;
+  gap: 5rem;
+}
+main #concept .wrapper .concept-bottom .concept-img3 {
+  border-radius: 20px;
+  width: 75rem;
+  height: 40rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main #concept .wrapper .concept-bottom .title {
+  margin-top: 20rem;
+  margin-bottom: 2rem;
+}
+main #concept .wrapper .concept-bottom .lead {
+  width: 25rem;
+}
+main #availability {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+main #availability .section-title {
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 3%;
+}
+main #availability .availability-container {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 3%;
+}
+main #availability .availability-container .booking-calendar {
+  width: 50%;
+}
+main #availability .availability-container .busy-list {
+  font-size: 2rem;
+  text-align: center;
+  width: 50%;
+}
+main #availability .availability-container .busy-list .title {
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5%;
+  display: inline-block;
+  margin-bottom: 3%;
+}
+main #availability .availability-container .busy-list dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2%;
+}
+main #availability .availability-container .busy-list dl dt {
+  width: 60%;
+}
+main #availability .availability-container .busy-list dl dd {
+  width: 40%;
+  border-radius: 10px;
+  padding-block: 1%;
+}
+main #availability .availability-container .busy-list dl dd:nth-of-type(1), main #availability .availability-container .busy-list dl dd:nth-of-type(4) {
+  background-color: #76C1FF;
+}
+main #availability .availability-container .busy-list dl dd:nth-of-type(2), main #availability .availability-container .busy-list dl dd:nth-of-type(3) {
+  background-color: #FF5656;
+}
+main #availability .availability-container .busy-list dl dt,
+main #availability .availability-container .busy-list dl dd {
+  margin-block: 3%;
+}
+main #availability .availability-container .busy-list .cta-instagram {
+  background-color: #FFCEC5;
+  display: inline-block;
+  padding: 1% 4%;
+  font-size: 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  width: 50%;
+}
+main #news {
+  background: url(../img/背景画像2.png) repeat-x center/contain;
+  height: 60vh;
+}
+main #news .section-title {
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 3%;
+  padding-top: 1%;
+}
+main #news .news-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  /* 左上 */
+  /* 右上 */
+  /* 左下 */
+  /* 右下 */
+}
+main #news .news-list .news-title {
+  font-size: 2rem;
+  border-bottom: 1px solid black;
+  margin-block: 1.5rem;
+  text-align: center;
+}
+main #news .news-list .corner {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+main #news .news-list .top-left {
+  top: 1rem;
+  left: 1rem;
+  border-width: 40px 40px 0 0;
+  border-color: #FFCEC5 transparent transparent transparent;
+}
+main #news .news-list .top-right {
+  top: 1rem;
+  right: 1rem;
+  border-width: 0 40px 40px 0;
+  border-color: transparent #FFCEC5 transparent transparent;
+}
+main #news .news-list .bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+  border-width: 0 40px 40px 0;
+  border-color: transparent transparent #FFCEC5 transparent;
+}
+main #news .news-list .bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+  border-width: 0 0 40px 40px;
+  border-color: transparent transparent #FFCEC5 transparent;
+}
+main #access {
+  position: relative;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+main #access .section-title {
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 3%;
+}
+main #access .img-illustration {
+  position: absolute;
+  width: 20%;
+  transform: rotate(40deg);
+  top: 0;
+  left: -30rem;
+}
+main #access .access-container {
+  display: flex;
+  justify-content: space-between;
+}
+main #access .access-container .information {
+  font-size: 2rem;
+  width: 50%;
+}
+main #access .access-container .information .name-title {
+  font-weight: bold;
+  margin-bottom: 3%;
+}
+main #access .access-container .information .access-detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+main #access .access-container .information .access-detail dt {
+  width: 30%;
+}
+main #access .access-container .information .access-detail dd {
+  width: 70%;
+}
+main #access .access-container .information .access-detail dt,
+main #access .access-container .information .access-detail dd {
+  margin-block: 1%;
+}
+main #access .access-container .information .cta-map {
+  background-color: #FFCEC5;
+  display: inline-block;
+  padding: 1% 4%;
+  font-size: 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  margin-top: 2%;
+}
+
+footer {
+  position: relative;
+  height: 20rem;
+}
+footer .footer-img {
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+}
+footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1120px;
+}
+footer .footer-container .store-text {
+  text-align: center;
+  width: 30%;
+  white-space: nowrap;
+}
+footer .footer-container .store-text .store-name {
+  font-size: 2rem;
+  margin-bottom: 2%;
+}
+footer .footer-container .store-text .store-options {
+  background-color: white;
+  border-radius: 50px;
+  padding: 3% 4%;
+  font-size: 1.5rem;
+}
+footer .footer-container .sns-list {
+  display: block;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 30%;
+}
+footer .footer-container .sns-list .sns-list-title {
+  margin-bottom: 3%;
+}
+footer .footer-container .sns-list .sns {
+  display: flex;
+  justify-content: center;
+}
+footer .footer-container .sns-list .sns .icon {
+  width: 15%;
+  padding-inline: 2%;
+}
+footer .footer-container .menu-list {
+  font-size: 1.5rem;
+  width: 30%;
+  display: flex;
+}
+footer .to-top {
+  position: fixed;
+  display: block;
+  width: 200px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+}/*# sourceMappingURL=style.css.map */
