@@ -1,0 +1,133 @@
+@use "mixin" as*;
+
+.menu-sheet {
+    padding: 0;
+
+    .menu-main-visual {
+        background: url(../img/メニューTOP.jpeg) no-repeat center / cover;
+        height: 100vh;
+        position: relative;
+
+        .menu-title {
+            position: absolute;
+            top: 45%;
+            left: 15%;
+            font-size: 6rem;
+            text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .menu-badge {
+            position: absolute;
+            top: 60%;
+            left: 13%;
+            background-color: white;
+            border-radius: 50%;
+            font-size: 2.4rem;
+            width: 20rem;
+            height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    .menu-tart {
+        position: relative;
+
+        .section-title {
+            @include section-title;
+        }
+
+        .tart-img-illust {
+            position: absolute;
+            width: 20%;
+            top: 0;
+            right: -15rem;
+            animation: fuwafuwa 3s ease-in-out infinite alternate;
+            transition: 1.5s ease-in-out;
+        }
+    }
+
+    .menu-drink {
+        position: relative;
+
+        .section-title {
+            @include section-title;
+        }
+
+        .drink-img-illust {
+            position: absolute;
+            width: 20%;
+            top: 0;
+            left: -15rem;
+            animation: fuwafuwa 3s ease-in-out infinite alternate;
+            transition: 1.5s ease-in-out;
+
+        }
+    }
+
+    .menu-tart,
+    .menu-drink {
+        max-width: 1120px;
+        margin: 0 auto;
+        margin-bottom: 10rem;
+
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+
+            .menu-list-item {
+                width: 27rem;
+                height: 30rem;
+
+                .list-img {
+                    width: 20rem;
+                    height: 20rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    padding-block: 5%;
+                }
+
+                .list-title {
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+            }
+
+        }
+
+        .pink {
+            background-color: $sub-color;
+        }
+
+        .cream {
+            background-color: $main-color;
+        }
+
+        .pink,
+        .cream {
+            border-radius: 10px;
+        }
+
+    }
+
+    @keyframes fuwafuwa {
+        0% {
+            transform: translate(0, 0) rotate(-7deg);
+        }
+
+        50% {
+            transform: translate(0, -7px) rotate(0deg);
+        }
+
+        100% {
+            transform: translate(0, 0) rotate(7deg);
+        }
+    }
+
+
+}
