@@ -4,30 +4,61 @@ $font-color: #000000;
 
 
 @mixin section-title {
-    text-align: center;
-    text-shadow: 0 4px rgba(0, 0, 0, 0.25);
-    font-size: 4rem;
-    margin-bottom: 5rem;
+  text-align: center;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
+  margin-bottom: 5rem;
 }
 
 @mixin concept-img {
-    border-radius: 20px;
-    width: 52vw;
-    height: 50vh;
+  border-radius: 20px;
+  width: 50%;
+  max-height: 40rem;
+  overflow: hidden;
+  object-fit: cover;
+
+  img {
     object-fit: cover;
+    height: 100%;
+  }
 }
 
 @mixin cta {
-    background-color: $sub-color;
-    display: inline-block;
-    padding: 1.5rem 7rem;
-    font-size: 2rem;
-    border-radius: 50px;
-    box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  background-color: $sub-color;
+  display: inline-block;
+  padding: 1.5rem 7rem;
+  font-size: 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.25);
 }
 
-@mixin responsive {
-    @media (max-width: 768px) {
-        @content;
-    }
+@mixin position-reset {
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+}
+
+// responsive
+$sp: 767px;
+$tab: 1023px;
+$pc: 1280px;
+
+@mixin sp {
+  @media (max-width: $sp) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: 768px) and (max-width: $tab) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: 1024px) and (max-width: $pc) {
+    @content;
+  }
 }

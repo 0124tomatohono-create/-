@@ -1,0 +1,114 @@
+@use "mixin" as*;
+
+#access {
+    .section-title {
+        @include section-title;
+    }
+
+    .access-container {
+        display: flex;
+        justify-content: space-evenly;
+        margin-inline: auto;
+        padding-inline: 2rem;
+        gap: 1rem;
+
+
+        .img-illustration {
+            width: 15%;
+            animation: fuwafuwa 3s ease-in-out infinite alternate;
+            transition: 1.5s ease-in-out;
+        }
+
+        @keyframes fuwafuwa {
+            0% {
+                transform: translate(0, 0) rotate(-7deg);
+            }
+
+            50% {
+                transform: translate(0, -7px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(7deg);
+            }
+        }
+
+        .information {
+            font-size: 2.3rem;
+            width: 30%;
+            text-align: center;
+
+            .name-title {
+                font-weight: bold;
+                margin-bottom: 3%;
+            }
+
+            .access-detail {
+                display: flex;
+                flex-wrap: wrap;
+
+                dt {
+                    width: 40%;
+                    text-align: right;
+                }
+
+                dd {
+                    width: 60%;
+                    text-align: left;
+                    padding-left: 1rem;
+                }
+
+                dt,
+                dd {
+                    margin-block: 1%;
+                }
+            }
+
+            .cta-map {
+                @include cta;
+                margin-top: 2%;
+            }
+        }
+
+        iframe {
+            width: 30%;
+            height: auto;
+        }
+
+        @include tab {
+            .information {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    @include sp {
+        .access-container {
+            flex-direction: column;
+            flex-direction: column-reverse;
+            margin-inline: 2rem;
+            padding: 0;
+
+            .img-illustration {
+                display: none;
+            }
+
+            .information {
+                width: 100%;
+
+                .name-title{
+                    margin-top: 1.5rem;
+                }
+
+                dl{
+                    padding-left: 5rem;
+                }
+            }
+
+            iframe {
+                width: 100%;
+                height: 30%;
+            }
+        }
+    }
+}
