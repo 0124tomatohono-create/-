@@ -1,0 +1,80 @@
+@use "mixin" as*;
+
+
+#news {
+    background: url(../img/背景画像2.png) repeat-x center / contain;
+    background-size: auto 100%;
+    padding-bottom: 6rem ;
+
+    .section-title {
+        @include section-title;
+        padding-top:  3rem;
+    }
+
+    .news-list {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 10px;
+        margin: 0 auto;
+        width: 50%;
+        height: auto;
+        padding: 4rem 2rem;
+
+        .news-title {
+            font-size: 2rem;
+            border-bottom: 1px solid black;
+            margin-block: 1.5rem;
+            text-align: center;
+        }
+
+        .corner {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        /* 左上 */
+        .top-left {
+            top: 1rem;
+            left: 1rem;
+            border-width: 40px 40px 0 0;
+            border-color: $sub-color transparent transparent transparent;
+        }
+
+        /* 右上 */
+        .top-right {
+            top: 1rem;
+            right: 1rem;
+            border-width: 0 40px 40px 0;
+            border-color: transparent $sub-color transparent transparent;
+        }
+
+        /* 左下 */
+        .bottom-left {
+            bottom: 1rem;
+            left: 1rem;
+            border-width: 0 40px 40px 0;
+            border-color: transparent transparent $sub-color transparent;
+        }
+
+        /* 右下 */
+        .bottom-right {
+            bottom: 1rem;
+            right: 1rem;
+            border-width: 0 0 40px 40px;
+            border-color: transparent transparent $sub-color transparent;
+        }
+    }
+
+    @include sp{
+        .news-list{
+            width: 90%;
+            margin-inline: auto;
+        }
+    }
+}

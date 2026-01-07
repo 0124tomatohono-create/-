@@ -1,0 +1,170 @@
+@use "mixin" as*;
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: url(../img/header-薄い.png) repeat-x top/ contain;
+
+    .store-name {
+        font-size: 2rem;
+        padding: 2rem;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+    
+        .nav-menu {
+            display: flex;
+            font-size: 2rem;
+            align-items: center;
+            justify-content: space-between;
+
+            li {
+                padding-right: 1.5rem;
+
+                .instagram-icon {
+                    display: block;
+                    width: 2.5rem;
+                }
+            }
+        }
+
+        .service-badge {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 50px;
+            width: 8.5rem;
+            height: 8.5rem;
+
+            .badge-text {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .mask {
+        display: none;
+    }
+
+    @include sp {
+        background: none;
+        justify-content: space-between;
+
+        .store-name{
+            font-size: 2rem;
+            padding: 1rem;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            opacity: 0;
+            transition: right 0.3s ease;
+            z-index: 30;
+        }
+
+        .hamburger {
+            background-color: $main-color ;
+            display: block;
+            width: 60px;
+            height: 60px;
+            position: relative;
+            z-index: 20;
+            top: 0;
+            right: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+
+            span {
+                position: absolute;
+                background-color: black;
+                width: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                transition: all 0.5s;
+
+                &:nth-child(1) {
+                    top: 30%;
+                }
+
+                &:nth-child(2) {
+                    top: 50%;
+                }
+
+                &:nth-child(3) {
+                    top: 70%;
+                }
+            }
+        }
+
+        &.open {
+            nav {
+                opacity: 1;
+                top: 10rem;
+                right: 0;
+                width: 100%;
+                justify-content: center;
+
+                .nav-menu {
+                    flex-direction: column;
+                    justify-content: center;
+
+                    li {
+                        padding-block: 1rem;
+                    }
+                }
+
+                .service-badge {
+                    border-radius: 20px;
+                }
+            }
+
+            .hamburger {
+                span {
+                    &:nth-child(1) {
+                        top: 50%;
+                        transform: translateX(-50%) rotate(-45deg);
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    &:nth-child(3) {
+                        top: 50%;
+                        transform: translateX(-50%) rotate(45deg);
+                    }
+                }
+            }
+
+            .mask {
+                display: block;
+                position: fixed;
+                background-color: $main-color;
+                z-index: 10;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

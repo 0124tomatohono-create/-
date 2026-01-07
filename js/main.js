@@ -1,5 +1,6 @@
 $(function () {
 
+  // topに戻る
   let pagetop = $(".to-top");
   pagetop.hide();
 
@@ -16,7 +17,8 @@ $(function () {
     return false;
   });
 
-  $(".toggle_btn").on("click", function () {
+  // ハンバーガーメニュー
+  $(".hamburger").on("click", function () {
     $("header").toggleClass("open");
   });
 
@@ -26,17 +28,49 @@ $(function () {
 
 });
 
-const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
-  loop: true,
-  slidesPerView: 3,
-  spaceBetween: 20,
-  autoplay: {
-    delay: 2000,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-});
+// スワイパー
+// const swiper = new Swiper('.swiper', {
+//   direction: 'horizontal',
+//   loop: true,
+//   slidesPerView: 3,
+//   spaceBetween: 20,
+//   autoplay: {
+//     delay: 2000,
+//   },
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//   },
+// });
+
+let swiper;
+const breakpoint = 768;
+
+function initSwiper() {
+  if (window.innerWidth >= breakpoint) {
+    if (!swiper) {
+      swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 20,
+        autoplay: {
+          delay: 2000,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    }
+  } else {
+    if (swiper) {
+      swiper.destroy(true, true);
+      swiper = undefined;
+    }
+  }
+}
+
+window.addEventListener('load', initSwiper);
+window.addEventListener('resize', initSwiper);
 

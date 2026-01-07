@@ -1,36 +1,43 @@
-.news-page{
-    overflow: hidden;
-}
+@use "mixin" as*;
+
 
 .news-container {
     max-width: 1120px;
     margin: 0 auto;
     display: flex;
-    height: 55vh;
+    padding-bottom: 7rem;
 
     .news-img {
-        width: 30rem;
+        width:  30rem;
         height: 30rem;
         border-radius: 50%;
         object-fit: cover;
     }
 
     .news-content {
-        padding-left: 10%;
+        padding-left: 10rem;
 
         .date {
-            margin-bottom: 2%;
+            margin-bottom: 1rem;
         }
 
         .news-title {
-            margin-bottom: 1%;
+            margin-bottom: 2rem;
             font-size: 3.6rem;
         }
 
         .news-text{
             font-size: 1.2rem;
         }
-
     }
 
+    @include sp{
+        flex-direction: column;
+        align-items: center;
+       
+        .news-content{
+            padding-left: 0;
+            margin-bottom: 2rem;
+        }   
+    }
 }
