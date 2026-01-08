@@ -24,6 +24,11 @@
   display: inline-block;
   top: 0;
   left: 35%;
+  width: 14ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #444;
+  animation: typing 1s steps(19) forwards, typingEffect 1s step-end forwards;
 }
 .loading .loading-title .loading-title-bottom {
   font-weight: bold;
@@ -31,12 +36,35 @@
   position: absolute;
   top: 5rem;
   left: 50%;
+  width: 12ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #444;
+  opacity: 0;
+  animation: show 0s linear 1s forwards, typing 1s steps(19) 1s forwards, typingEffect 0.2s step-end infinite alternate 1s;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes typingEffect {
+  0% {
+    border-color: #444;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+@keyframes show {
+  to {
+    opacity: 1;
+  }
 }
 .loading .loading-img {
   width: 20%;
   margin-top: 10rem;
 }
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -47,17 +75,30 @@
     visibility: hidden;
   }
 }
+@media (max-width: 767px) {
+  .loading .loading-title .loading-title-top {
+    left: 15%;
+  }
+  .loading .loading-title .loading-title-bottom {
+    left: 35%;
+  }
+  .loading .loading-img {
+    width: 40%;
+    margin-top: 10rem;
+  }
+}
+
 header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 70;
   width: 100%;
-  height: 13vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background: url(../img/header-薄い.png) repeat-x top/contain;
+  background-size: auto 100%;
 }
 header .store-name {
   font-size: 2rem;
@@ -66,6 +107,7 @@ header .store-name {
 header nav {
   display: flex;
   align-items: center;
+  top: 0;
   padding: 2rem;
 }
 header nav .nav-menu {
@@ -104,6 +146,8 @@ header .mask {
   header {
     background: none;
     justify-content: space-between;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.603);
   }
   header .store-name {
     font-size: 2rem;
@@ -115,7 +159,7 @@ header .mask {
     right: -100%;
     opacity: 0;
     transition: right 0.3s ease;
-    z-index: 30;
+    z-index: 90;
   }
   header .hamburger {
     background-color: #F8EDD3;
@@ -123,7 +167,7 @@ header .mask {
     width: 60px;
     height: 60px;
     position: relative;
-    z-index: 20;
+    z-index: 100;
     top: 0;
     right: 1rem;
     border-radius: 50%;
@@ -179,7 +223,7 @@ header .mask {
     display: block;
     position: fixed;
     background-color: #F8EDD3;
-    z-index: 10;
+    z-index: 80;
     top: 0;
     left: 0;
     width: 100%;
@@ -188,23 +232,17 @@ header .mask {
 }
 
 footer {
-  position: relative;
-  height: 20rem;
-}
-footer .footer-img {
-  display: block;
-  width: 100%;
-  height: 100%;
+  background: url(../img/フッター背景\ \(3\).png) repeat-x top/contain;
+  background-size: auto 100%;
 }
 footer .footer-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
   max-width: 1120px;
+  margin: 0 auto;
+  align-items: center;
+  padding-block: 5rem;
 }
 footer .footer-container .store-text {
   text-align: center;
@@ -212,14 +250,14 @@ footer .footer-container .store-text {
   white-space: nowrap;
 }
 footer .footer-container .store-text .store-name {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 2%;
 }
 footer .footer-container .store-text .store-options {
   background-color: white;
   border-radius: 50px;
   padding: 3% 4%;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 footer .footer-container .sns-list {
   display: block;
@@ -229,20 +267,24 @@ footer .footer-container .sns-list {
 }
 footer .footer-container .sns-list .sns-list-title {
   margin-bottom: 3%;
+  font-size: 2rem;
 }
 footer .footer-container .sns-list .sns {
   display: flex;
   justify-content: center;
 }
 footer .footer-container .sns-list .sns .icon {
-  width: 15%;
+  width: 20%;
   padding-inline: 2%;
 }
 footer .footer-container .menu-list {
-  font-size: 1.5rem;
+  font-size: 2rem;
   width: 30%;
   display: flex;
   justify-content: space-around;
+}
+footer .footer-container-sp {
+  display: none;
 }
 footer .to-top {
   position: fixed;
@@ -251,6 +293,56 @@ footer .to-top {
   right: 20px;
   bottom: 20px;
   z-index: 30;
+}
+@media (max-width: 767px) {
+  footer .footer-container {
+    display: none;
+  }
+  footer .footer-container-sp {
+    display: block;
+    margin-inline: auto;
+    padding-block: 5rem;
+    text-align: center;
+  }
+  footer .footer-container-sp .store-name {
+    font-size: 2.5rem;
+    padding-bottom: 2rem;
+  }
+  footer .footer-container-sp .store-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  footer .footer-container-sp .store-info .store-options {
+    background-color: white;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+  }
+  footer .footer-container-sp .store-info .sns-list .sns-list-title {
+    font-size: 1.5rem;
+  }
+  footer .footer-container-sp .store-info .sns-list .sns {
+    display: flex;
+  }
+  footer .footer-container-sp .store-info .sns-list .sns .icon {
+    width: 30px;
+    height: 30px;
+  }
+  footer .footer-container-sp .menu-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2rem;
+  }
+  footer .to-top {
+    width: 20rem;
+    right: -7rem;
+    bottom: 1rem;
+    transform: rotate(-45deg);
+  }
 }
 
 .main-visual {
@@ -368,14 +460,12 @@ footer .to-top {
     height: 60%;
   }
   .main-visual .main-visual-img li img {
-    width: 100%;
     border-radius: 1rem;
   }
   .main-visual .info-banner {
     flex-direction: row;
     justify-content: space-around;
-    margin-inline: 5rem;
-    padding-right: 6rem;
+    margin-inline: 2rem;
   }
   .main-visual .info-banner .info-banner-text {
     position: relative;
@@ -396,12 +486,12 @@ footer .to-top {
     display: block;
   }
   .main-visual .info-banner .info-banner-text .banner-text:nth-child(1) {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
   .main-visual .info-banner .info-banner-text .banner-text:nth-child(2) {
     border-bottom: 1px solid black;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-top: 0;
   }
   .main-visual .info-banner .info-banner-img {
