@@ -121,7 +121,6 @@
                 max-width: 20rem;
             }
         }
-
     }
 
     @include sp {
@@ -135,7 +134,6 @@
                 height: 60%;
 
                 img {
-                    width: 100%;
                     border-radius: 1rem;
                 }
             }
@@ -144,8 +142,7 @@
         .info-banner {
             flex-direction: row;
             justify-content: space-around;
-            margin-inline: 5rem;
-            padding-right: 6rem;
+            margin-inline: 2rem;
             
             .info-banner-text {
                 position: relative;
@@ -167,13 +164,13 @@
                     display: block;
 
                     &:nth-child(1) {
-                        font-size: 1.5rem;
+                        font-size: 2rem;
                         margin-bottom: 1rem;
                     }
 
                     &:nth-child(2) {
                         border-bottom: 1px solid black;
-                        font-size: 1rem;
+                        font-size: 1.5rem;
                         margin-top: 0;
                     }
                 }

@@ -25,6 +25,11 @@
             display: inline-block;
             top: 0;
             left: 35%;
+            width: 14ch;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #444;
+            animation: typing 1s steps(19) forwards, typingEffect 1s step-end forwards;
         }
 
         .loading-title-bottom {
@@ -33,6 +38,34 @@
             position: absolute;
             top: 5rem;
             left: 50%;
+            width: 12ch;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #444;
+            opacity: 0;
+            animation: show 0s linear 1s forwards, typing 1s steps(19) 1s forwards, typingEffect .2s step-end infinite alternate 1s;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes typingEffect {
+            0% {
+                border-color: #444;
+            }
+
+            100% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes show {
+            to {
+                opacity: 1;
+            }
         }
     }
 
@@ -40,16 +73,34 @@
         width: 20%;
         margin-top: 10rem;
     }
-}
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        100% {
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 
-    100% {
-        opacity: 0;
-        visibility: hidden;
+    @include sp {
+        .loading-title {
+            .loading-title-top {
+                left: 15%;
+            }
+
+            .loading-title-bottom {
+                left: 35%;
+            }
+
+        }
+
+        .loading-img {
+            width: 40%;
+            margin-top: 10rem;
+        }
     }
 }
