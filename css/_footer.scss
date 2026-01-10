@@ -53,12 +53,14 @@ footer {
             }
         }
 
-        .menu-list {
-            font-size: 2rem;
-            width: 30%;
+        .menu-list-container {
             display: flex;
             justify-content: space-around;
+            width: 30%;
 
+            .menu-list {
+                font-size: 2rem;
+            }
         }
     }
 
@@ -132,7 +134,7 @@ footer {
         .to-top {
             width: 20rem;
             right: -7rem;
-            bottom: 1rem;
+            bottom: 0;
             transform: rotate(-45deg);
         }
     }
