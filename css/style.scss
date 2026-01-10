@@ -28,12 +28,10 @@ html {
 
     @include tab {
         font-size: clamp(8px, 0.98vw, 10px);
-
     }
 
     @include sp {
-        //  font-size: clamp(8px, 2.67vw, 10px);
-        font-size: min(8px);
+         font-size: clamp(8px, 2.67vw, 10px);
     }
 }
 

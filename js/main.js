@@ -1,20 +1,27 @@
 $(function () {
 
   // topに戻る
-  let pagetop = $(".to-top");
-  pagetop.hide();
 
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 1000) {
-      pagetop.fadeIn();
-    } else {
-      pagetop.fadeOut();
-    }
-  });
+  $(function () {
+    let pagetop = $(".to-top");
+    pagetop.hide();
 
-  pagetop.click(function () {
-    $("body,html").animate({ scrollTop: 0 }, 500);
-    return false;
+    $(window).scroll(function () {
+      let scrollTop = $(this).scrollTop();
+      let scrollHeight = $(document).height();
+      let windowHeight = $(window).height();
+      let threshold = ($(window).width() < 768) ? 300 : 500;
+      if (scrollTop > threshold && scrollTop + windowHeight < scrollHeight - 100) {
+        pagetop.fadeIn();
+      } else {
+        pagetop.fadeOut();
+      }
+    });
+
+    pagetop.click(function () {
+      $("body,html").animate({ scrollTop: 0 }, 500);
+      return false;
+    });
   });
 
   // ハンバーガーメニュー
@@ -29,19 +36,6 @@ $(function () {
 });
 
 // スワイパー
-// const swiper = new Swiper('.swiper', {
-//   direction: 'horizontal',
-//   loop: true,
-//   slidesPerView: 3,
-//   spaceBetween: 20,
-//   autoplay: {
-//     delay: 2000,
-//   },
-//   pagination: {
-//     el: '.swiper-pagination',
-//     clickable: true,
-//   },
-// });
 
 let swiper;
 const breakpoint = 768;

@@ -2,9 +2,10 @@
 
 .menu-sheet {
     padding: 0;
+    overflow: hidden;
 
     .menu-main-visual {
-        background: url(../img/メニューTOP.jpeg) no-repeat center / cover;
+        background: url(../img/menu-top.jpeg) no-repeat center / cover;
         height: 100vh;
         position: relative;
 
@@ -22,7 +23,6 @@
             left: 13%;
             background-color: white;
             border-radius: 50%;
-            font-size: 2.4rem;
             width: 20rem;
             height: 20rem;
             display: flex;
@@ -30,6 +30,7 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+            font-size: 2.4rem;
         }
     }
 
@@ -42,9 +43,9 @@
 
         .tart-img-illust {
             position: absolute;
-            width: 20%;
+            width: 10%;
             top: 0;
-            right: -15rem;
+            right: 0;
             animation: fuwafuwa 3s ease-in-out infinite alternate;
             transition: 1.5s ease-in-out;
         }
@@ -59,12 +60,11 @@
 
         .drink-img-illust {
             position: absolute;
-            width: 20%;
+            width: 10%;
             top: 0;
-            left: -15rem;
+            left: 0;
             animation: fuwafuwa 3s ease-in-out infinite alternate;
             transition: 1.5s ease-in-out;
-
         }
     }
 
@@ -76,20 +76,23 @@
 
         .menu-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, clamp(220px, 30vw, 270px));
+            grid-template-rows: repeat(2, 300px);
+            gap: 10px;
+            width: fit-content;
             text-align: center;
+            margin: 0 auto;
 
             .menu-list-item {
-                width: 27rem;
-                height: 30rem;
+                width: 100%;
+                padding: 2rem;
 
                 .list-img {
                     width: 20rem;
                     height: 20rem;
                     border-radius: 50%;
                     object-fit: cover;
-                    padding-block: 5%;
+                    margin-bottom: 2rem;
                 }
 
                 .list-title {
@@ -97,7 +100,6 @@
                     font-size: 1.2rem;
                 }
             }
-
         }
 
         .pink {
@@ -112,7 +114,52 @@
         .cream {
             border-radius: 10px;
         }
+    }
 
+    @include sp {
+        .menu-main-visual {
+            height: 50vh;
+
+            .menu-title {
+                font-size: 2.5rem;
+            }
+
+            .menu-badge {
+                font-size: 1.25rem;
+                width: 10rem;
+                height: 10rem;
+            }
+        }
+
+        .menu-tart,
+        .menu-drink {
+            .menu-list {
+                display: grid;
+                grid-template-columns: repeat(2, 150px);
+                grid-template-rows: repeat(3, 200px);
+                gap: 20px;
+                width: fit-content;
+                margin: 0 auto;
+
+                .menu-list-item {
+                    padding: 1rem;
+
+                    .list-img {
+                        width: 15rem;
+                        height: 15rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                .sp-cream {
+                    background-color: $main-color;
+                }
+
+                .sp-pink {
+                    background-color: $sub-color;
+                }
+            }
+        }
     }
 
     @keyframes fuwafuwa {
@@ -128,6 +175,4 @@
             transform: translate(0, 0) rotate(7deg);
         }
     }
-
-
 }
